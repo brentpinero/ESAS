@@ -1,0 +1,48 @@
+<footer role='contentinfo' class='footer'>
+  <div class='footer-bottom hidden-print'>
+    <div class='container footer-container'>
+      <div class='row'>
+        <div class='col-md-9'>
+          <p style="font-size: 75%; font-weight: bold;">Eco Stream Air Solutions LLC</p>
+          <p style="font-size: 70%;">Contact us at <b>(817)-470-0133</b></p>
+          <p style="font-size: 70%;">HVAC#: TACLA009556C</p> 
+          <!-- {% editable snippets 'Footer' type: 'html' %} -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type='text/javascript'>
+  window.onload = function () {
+    const accessibilityLinkContainer = document.getElementById('accessibilityLinkContainer');
+    switch (window.navigator.language) {
+      case 'fr':
+        if (accessibilityLinkContainer != null) {
+          const accessibilityText = 'Accessibilité : partiellement conforme';
+          const frenchAccessibilityAnchor = document.createElement('a');
+          frenchAccessibilityAnchor.id = 'frenchAccesssibleLink';
+          frenchAccessibilityAnchor.target = '_blank';
+          frenchAccessibilityAnchor.href = 'https://go.microsoft.com/fwlink/?linkid=2163806';
+          frenchAccessibilityAnchor.title = accessibilityText;
+          frenchAccessibilityAnchor.innerText = accessibilityText;
+          accessibilityLinkContainer.appendChild(frenchAccessibilityAnchor);
+        }
+        break;
+      case 'it':
+        if (accessibilityLinkContainer != null) {
+          const accessibilityText = 'Accessibilità: parzialmente conforme';
+          const italianAccessibilityAnchor = document.createElement('a');
+          italianAccessibilityAnchor.id = 'italianAccesssibleLink';
+          italianAccessibilityAnchor.target = '_blank';
+          italianAccessibilityAnchor.href = 'https://go.microsoft.com/fwlink/?linkid=2208177';
+          italianAccessibilityAnchor.title = accessibilityText;
+          italianAccessibilityAnchor.innerText = accessibilityText;
+          accessibilityLinkContainer.appendChild(italianAccessibilityAnchor);
+        }
+        break;
+      default:
+        accessibilityLinkContainer.remove();
+    }
+  };
+</script>

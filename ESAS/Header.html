@@ -1,0 +1,65 @@
+{% assign defaultlang = settings['LanguageLocale/Code'] | default: 'en-us' %}
+{% assign homeurl = website.adx_partialurl %}
+
+<div class="navbar navbar-inverse navbar-static-top" role="banner">
+  <div class="custom-header">
+    <header style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 10px; height: 90px;">
+      <!-- Logo: 5px from the left -->
+      <a href="~/">
+        <img src="{{ snippets['Logo URL'] }}" alt="{{ snippets['Logo alt text'] }}" style="height: 32px; margin-left: 5px; flex:1;">
+      </a>
+      <!-- Phone number: take up the extra space -->
+      <h3 style="margin: 0; text-align: center; flex: 1; color: #219653; font-family: Inter; font-size: 24px;">
+        Call now at (817)-470-0133
+      </h3>
+      <!-- Button: pushed to far right -->
+      <a class="button4" href="#" onclick="window.location.href='https://cal.com/ecostream-air'" style="margin-right: 5px; flex:1; max-width: 170px; max-height: 40px; white-space: nowrap; justify-content: center;">
+        <b>Book a Consultation</b>
+      </a>
+    </header>
+    </div>
+  </div>
+</div>
+{% substitution %}
+{% assign current_page = page.id %}
+{% assign sr_page = sitemarkers.Search.id %}
+{% assign forum_page = sitemarkers.Forums.id %}
+{% if current_page %}
+  {% if current_page == sr_page or current_page == forum_page %}
+    {% assign section_class = 'section-landing-search' %}
+    {% if current_page == forum_page %}
+      {% assign section_class = 'section-landing-forums' %}
+    {% endif %}
+    <section class='page_section {{ section_class | h }} color-inverse'>
+      <div class='row sectionBlockLayout sectionFixedStyle' style='display: flex; flex-wrap: wrap; text-align: center;'>
+        <div class='container' style='display: flex; flex-wrap: wrap;'>
+          <div class='col-md-12 columnBlockLayout' style='display: flex; flex-direction: column; justify-content: center;'>
+            {% if current_page == sr_page %}
+              <h1 id='mainContent'>{% editable snippets 'Search/Title' default: resx["Discover_Contoso"] %}</h1>
+              {% include 'Search', search_id: 'search_control' %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endif %}
+{% endsubstitution %}
+<script type='text/javascript'>
+  window.onload = function () {
+    if (window.navigator.appName == 'Microsoft Internet Explorer' || window.navigator.userAgent.indexOf('Trident') > 0) {
+      var searchElement = document.getElementById('search');
+      if (searchElement != null) searchElement.setAttribute('href', '');
+    }
+  };
+  function setHeight() {
+    var windowHeight = window.innerHeight - 140;
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+      navbar.style.maxHeight = windowHeight + 'px';
+    }
+  }
+  window.addEventListener('resize', function (event) {
+    setHeight();
+  });
+</script>

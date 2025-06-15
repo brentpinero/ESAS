@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ecostrea/public_html/
+    # Copy main website files
+    - /bin/cp ../index.html $DEPLOYPATH
+    - /bin/cp ../.htaccess $DEPLOYPATH
+    # Copy all ESAS assets (CSS, images, etc.)
+    - /bin/cp -r ../ESAS/ $DEPLOYPATH
+    # Set proper permissions
+    - /bin/chmod 644 $DEPLOYPATH/index.html
+    - /bin/chmod 644 $DEPLOYPATH/.htaccess
+    - /bin/chmod -R 644 $DEPLOYPATH/ESAS/*
+    - /bin/chmod 755 $DEPLOYPATH/ESAS/

@@ -1,0 +1,18 @@
+{
+  "name": "eco-stream-air-website",
+  "version": "1.0.0",
+  "description": "Eco Stream Air Solutions HVAC Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static site - no build needed'",
+    "install-dev": "npm install live-server --save-dev"
+  },
+  "keywords": ["hvac", "website", "static"],
+  "author": "Eco Stream Air Solutions",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
