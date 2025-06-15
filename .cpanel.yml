@@ -2,5 +2,19 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ecostrea/public_html/
-    - /bin/cp web-pages/Home/index.html $DEPLOYPATH
-    - /bin/cp web-pages/Home/Home.en-US.customcss.css $DEPLOYPATH
+    # Copy main website files
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
+    # Copy all CSS files
+    - /bin/cp *.css $DEPLOYPATH
+    # Copy all image files
+    - /bin/cp *.png $DEPLOYPATH
+    - /bin/cp *.jpg $DEPLOYPATH
+    # Copy web-pages folder if needed
+    - /bin/cp -r web-pages/ $DEPLOYPATH
+    # Set proper permissions
+    - /bin/chmod 644 $DEPLOYPATH/index.html
+    - /bin/chmod 644 $DEPLOYPATH/.htaccess
+    - /bin/chmod 644 $DEPLOYPATH/*.css
+    - /bin/chmod 644 $DEPLOYPATH/*.png
+    - /bin/chmod 644 $DEPLOYPATH/*.jpg
