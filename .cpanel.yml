@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ecostrea/public_html/
+    - /bin/cp web-pages/Home/index.html $DEPLOYPATH
+    - /bin/cp web-pages/Home/Home.en-US.customcss.css $DEPLOYPATH
